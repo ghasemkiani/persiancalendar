@@ -1,0 +1,10 @@
+
+D:\JAVA\OUT>D:\JAVA\j2sdk1.5.0\bin\java.exe -cp ".;D:\JAVA\CLASSES;D:\JAVA\APPS\icu\3.2\icu4j_3_2_calendar\icu4j_3_2_calendar.jar" -Xmx228M  com.ghasemkiani.test.util.icu.TestPersianCalendar 
+
+
+All tests SUCCEEDED!
+
+
+
+D:\JAVA\OUT>pause
+Press any key to continue . . . 
