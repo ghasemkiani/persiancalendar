@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ghasemkiani</groupId>
   <artifactId>persiancalendar</artifactId>
-  <version>3.0-SNAPSHOT</version>
+  <version>3.0</version>
   <packaging>jar</packaging>
   <name>persiancalendar</name>
   <description>Persian Calendar is an implementation of the Iranian (Jalali) calendar based on the ICU4J calendar framework.</description>
