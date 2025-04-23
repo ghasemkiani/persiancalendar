@@ -24,6 +24,10 @@
 
 /*
 	HISTORY:
+	Version 1.3 2003-12-12:
+		Added accessor get methods for "properties" persianMonthName
+		and persianWeekDayName. Corrected some errors in the 
+		documentation.
 	Version 1.2 2003-11-17:
 		Converted Persian literals to Unicode escape sequences.
 	Version 1.1 2003-10-23:
@@ -51,7 +55,7 @@ import java.util.GregorianCalendar;
 	Their efforts are gratefully acknowledged.
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 1.2
+	@version 1.3
 */
 
 public class SimplePersianCalendar extends GregorianCalendar
@@ -129,7 +133,7 @@ public class SimplePersianCalendar extends GregorianCalendar
 		Persian month names.
 		@since 1.1
 	*/
-	// Comments are in "ISO-8859-6" encoding, but the code is essentially ASCII.
+	// Comments are in "windows-1256" encoding, but the code is essentially ASCII.
 	public static final String[] persianMonths =
 	{
 		"\u0641\u0631\u0648\u0631\u062F\u064A\u0646", // "›—Ê—œÌ‰"
@@ -150,7 +154,7 @@ public class SimplePersianCalendar extends GregorianCalendar
 		Persian week day names.
 		@since 1.1
 	*/
-	// Comments are in "ISO-8859-6" encoding, but the code is essentially ASCII.
+	// Comments are in "windows-1256" encoding, but the code is essentially ASCII.
 	public static final String[] persianWeekDays =
 	{
 		"\u0634\u0646\u0628\u0647", // "‘‰»Â"
@@ -200,7 +204,7 @@ public class SimplePersianCalendar extends GregorianCalendar
 		}
 	}
 	/**
-		Gives the name of the current Persian month for this calendar's date.
+		Gives the name of the specified Persian month.
 		@since 1.1
 	*/
 	public static String getPersianMonthName(int month)
@@ -208,7 +212,15 @@ public class SimplePersianCalendar extends GregorianCalendar
 		return persianMonths[month];
 	}
 	/**
-		Gives the Persian name of the current day of the week for this calendar's date.
+		Gives the name of the current Persian month for this calendar's date.
+		@since 1.3
+	*/
+	public String getPersianMonthName()
+	{
+		return getPersianMonthName(getDateFields().getMonth());
+	}
+	/**
+		Gives the Persian name of the specified day of the week.
 		@since 1.1
 	*/
 	public static String getPersianWeekDayName(int weekDay)
@@ -224,6 +236,14 @@ public class SimplePersianCalendar extends GregorianCalendar
 			case FRIDAY: return persianWeekDays[6];
 		}
 		return "";
+	}
+	/**
+		Gives the Persian name of the current day of the week for this calendar's date.
+		@since 1.3
+	*/
+	public String getPersianWeekDayName()
+	{
+		return getPersianWeekDayName(get(DAY_OF_WEEK));
 	}
 
 	// Correspondence between original VB functions and Java methods:
@@ -415,7 +435,7 @@ public class SimplePersianCalendar extends GregorianCalendar
 		SimplePersianCalendar c = new SimplePersianCalendar();
 		DateFields df = c.getDateFields();
 		System.out.println(df);
-		// Comment is in "ISO-8859-6" encoding, but the code is essentially ASCII.
+		// Comment is in "windows-1256" encoding, but the code is essentially ASCII.
 		System.out.println("\u0627\u0645\u0631\u0648\u0632: " /* "«„—Ê“: " */ + getPersianWeekDayName(c.get(DAY_OF_WEEK)) + " " + df.getDay() + " " + getPersianMonthName(df.getMonth()) + " " + df.getYear());
 	}
 }

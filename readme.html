@@ -9,9 +9,8 @@
 		<link rel="stylesheet" href="style.css" type="text/css"></head>
 	<body>
 		<h1>Persian Calendar</h1>
-		<h2>Version 1.2</h2>
-		<h3>Copyright &copy; 2003, Ghasem Kiani</h3>
-		<p><strong>Please see <a href="history.html">history.html</a> for recent changes in this version.</strong></p>
+		<p><strong>Version 1.3</strong></p>
+		<p><em>Copyright &copy; 2003, Ghasem Kiani</em></p>
 		<p>The formal calendar in general use in Iran is the Solar Hijri Calendar, also called the Jalali Calendar. We call it here the Persian calendar.</p>
 		<p>The class <code>com.ghasemkiani.util.SimplePersianCalendar</code> is a subclass of <code>java.util.GregorianCalendar</code>, with the added functionality that it can set/get date in the Persian calendar system. This is not a true implementation for a <code>PersianCalendar</code>, because the date fields are not accessible via <code>Calendar.get(Calendar.YEAR)</code>, etc. (Instead, the Persian year, month, and day are accessible using a special object of type <code>com.ghasemkiani.util.DateFields</code>.) Such a true implementation may appear in a future version, or it may become available via IBM's <em>&quot;International Components for Unicode for Java&quot;</em> (see <a href="http://oss.software.ibm.com/icu4j/">http://oss.software.ibm.com/icu4j</a>).</p>
 		<p>The algorithms for conversion between Persian and Gregorian calendar systems are taken from the <a href="http://couprie.docspages.com/calmath/"> &quot;Calendar Math Add-In for Excel&quot;</a> by <a href="mailto:kees@couprie.org">Kees Couprie</a>. As Couprie states, <a href="mailto:mtahani@noornet.net">Mohammad Tahani</a> from the <a href="http://www.noorsoft.org/">Computer Research Center of Islamic Sciences (CRCIS)</a> of I.R. Iran has contributed to the development of the Persian calendar in that package. Their efforts are gratefully acknowledged. </p>

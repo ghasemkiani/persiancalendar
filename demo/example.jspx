@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="windows-1256"?>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fa" lang="fa" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jstl/core_rt" style="direction: rtl;">
+	<jsp:directive.page import="com.ghasemkiani.util.SimplePersianCalendar" />
+	<jsp:directive.page import="com.ghasemkiani.util.DateFields" />
+	<jsp:directive.page contentType="text/html; charset=windows-1256" />
+	<jsp:scriptlet>request.setCharacterEncoding("windows-1256");</jsp:scriptlet>
+	<jsp:useBean id="df" class="com.ghasemkiani.util.DateFields" scope="page" />
+	<jsp:useBean id="spc" class="com.ghasemkiani.util.SimplePersianCalendar" scope="page" />
+	<jsp:setProperty name="df" property="*" />
+	<head>
+		<meta name="author" content="Ghasem Kiani" />
+		<meta http-equiv="Content-Language" content="fa" />
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1256" />
+		<title>آزمايش تاريخ</title>
+		<style>
+				h1, h2, h3, h4, h5, h6
+				{
+					font-family: times new roman;
+				}
+				p, td, li, input
+				{
+					font-family: tahoma;
+					font-size: x-small;
+				}
+				input
+				{
+					border: solid 1px black;
+				}
+			</style></head>
+	<body style="font-family: tahoma, times new roman; background-color: #eef;">
+		<div>
+			<h1>سلام, 
+				<c:choose>
+					<c:when test="${empty param.user}">ميهمان عزيز</c:when>
+					<c:otherwise>
+						<c:out value="${param.user}" escapeXml="false" /></c:otherwise></c:choose></h1>
+			<p>امروز <span style="color: maroon; font-weight: bold;">
+					<c:out value="${spc.persianWeekDayName}, ${spc.dateFields.day} ${spc.persianMonthName} ${spc.dateFields.year}" /></span> است.</p>
+			<c:if test="${not empty param.year and not empty param.month and not empty param.day}">
+				<jsp:setProperty name="spc" property="dateFields" value="${df}" />
+				<jsp:scriptlet>spc.set(df.getYear(), df.getMonth() - 1, df.getDay());</jsp:scriptlet>
+				<p>تاريخ مورد نظر شما <span style="color: darkBlue; font-weight: bold;">
+						<c:out value="${spc.persianWeekDayName}, ${spc.dateFields.day} ${spc.persianMonthName} ${spc.dateFields.year}" /></span> است.</p></c:if>
+			<hr />
+			<c:choose>
+				<c:when test="${empty param.user}">
+					<c:set var="auser" value="" /></c:when>
+				<c:otherwise>
+					<c:set var="auser" value="${param.user}" /></c:otherwise></c:choose>
+			<c:choose>
+				<c:when test="${empty param.year}">
+					<c:set var="ayear" value="" /></c:when>
+				<c:otherwise>
+					<c:set var="ayear" value="${param.year}" /></c:otherwise></c:choose>
+			<c:choose>
+				<c:when test="${empty param.month}">
+					<c:set var="amonth" value="" /></c:when>
+				<c:otherwise>
+					<c:set var="amonth" value="${param.month}" /></c:otherwise></c:choose>
+			<c:choose>
+				<c:when test="${empty param.day}">
+					<c:set var="aday" value="" /></c:when>
+				<c:otherwise>
+					<c:set var="aday" value="${param.day}" /></c:otherwise></c:choose>
+			<form>
+				<p>براي اينكه يك تاريخ ميلادي را به شمسي تبديل كنيد, از فرم زير استفاده كنيد.</p>
+				<table cellspacing="5" cellpadding="1" style="background-color: #ddd; border: outset thin white;">
+					<tr>
+						<td><strong>كاربر</strong></td>
+						<td><input style="width: 6em;" name="user" value="${auser}" /></td>
+						<td>يك نام فارسي براي نمايش قابليت فارسي.</td></tr>
+					<tr>
+						<td><strong>روز</strong></td>
+						<td><input style="width: 6em;" name="day" value="${aday}" /></td>
+						<td>(1-31)</td></tr>
+					<tr>
+						<td><strong>ماه</strong></td>
+						<td><input style="width: 6em;" name="month" value="${amonth}" /></td>
+						<td>(1-12)</td></tr>
+					<tr>
+						<td><strong>سال</strong></td>
+						<td><input style="width: 6em;" name="year" value="${ayear}" /></td>
+						<td>(سال ميلادي)</td></tr>
+					<tr>
+						<td colspan="3" style="text-align: center;"><input type="submit" value="تحويل" style="width: 6em; background-color: #ddd;" /></td></tr></table></form></div></body></html>
