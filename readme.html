@@ -1,24 +1,32 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
 <html>
- <head>
-  <meta name="author" content="">
-  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-  <meta http-equiv="Content-Language" content="fa">
-  <title>readme.html</title></head>
- <body>
-  <h1>Persian Calendar</h1>
-  <h2>Version 1.0</h2>
-  <p><code>com.ghasemkiani.util.SimplePersianCalendar</code> is a subclass of <code>java.util.GregorianCalendar</code> that performs Persian/Gregorian date conversion. This is not a true implementation for a <code>PersianCalendar</code>, because the date fields are not accessible via <code>Calendar.get(Calendar.YEAR)</code>, etc. Such a true implementation may appear in a future version, or it may become available via IBM's <em>&quot;International Components for Unicode for Java&quot;</em> (see <a href="http://oss.software.ibm.com/icu4j/">http://oss.software.ibm.com/icu4j</a>).</p>
-  <p>The algorithms for conversion between Persian and Gregorian calendar systems are taken from <a href="http://www.angelfire.com/co4/couprie/calmath/download/calmath.zip"><em>&quot;Calendar Math Add-In for Excel&quot;</em></a> by <a href="mailto:kees@couprie.org">Kees Couprie</a>. Couprie has expressed Special thanks to <a href="mailto:mtahani@noornet.net">Mohammad Tahani</a> from the <a href="http://www.noorsoft.org/">Computer Research Center of Islamic Sciences (CRCIS)</a> of I.R.Iran. I thank both Couprie and Tahani cordially.</p>
-  <p>I may have done some mistakes in translating Couprie's VB code into Java. If you find any errors, please report it to me (<a href="mailto:ghasemkiani@yahoo.com">ghasemkiani@yahoo.com</a>).</p>
-  <p>Using <code>SimplePersianCalendar</code> is strightforward. For example, to convert the current date into Persian date, we can write:</p>
-  <pre>	SimplePersianCalendar c = new SimplePersianCalendar();
+	<head>
+		<meta name="author" content="">
+		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+		<meta http-equiv="Content-Language" content="en">
+		<title>Persian Calendar</title>
+		<link rel="stylesheet" href="style.css" type="text/css"></head>
+	<body>
+		<h1>Persian Calendar</h1>
+		<h2>Version 1.1</h2>
+		<h3>Copyright &copy; 2003, Ghasem Kiani</h3>
+		<p><strong>Please see <a href="history.html">history.html</a> for recent changes in this version.</strong></p>
+		<p>The formal calendar in general use in Iran is the Solar Hijri Calendar, also called the Jalali Calendar. We call it here the Persian calendar.</p>
+		<p>The class <code>com.ghasemkiani.util.SimplePersianCalendar</code> is a subclass of <code>java.util.GregorianCalendar</code>, with the added functionality that it can set/get date in the Persian calendar system. This is not a true implementation for a <code>PersianCalendar</code>, because the date fields are not accessible via <code>Calendar.get(Calendar.YEAR)</code>, etc. (Instead, the Persian year, month, and day are accessible using a special object of type <code>com.ghasemkiani.util.DateFields</code>.) Such a true implementation may appear in a future version, or it may become available via IBM's <em>&quot;International Components for Unicode for Java&quot;</em> (see <a href="http://oss.software.ibm.com/icu4j/">http://oss.software.ibm.com/icu4j</a>).</p>
+		<p>The algorithms for conversion between Persian and Gregorian calendar systems are taken from the <a href="http://couprie.docspages.com/calmath/"> &quot;Calendar Math Add-In for Excel&quot;</a> by <a href="mailto:kees@couprie.org">Kees Couprie</a>. As Couprie states, <a href="mailto:mtahani@noornet.net">Mohammad Tahani</a> from the <a href="http://www.noorsoft.org/">Computer Research Center of Islamic Sciences (CRCIS)</a> of I.R. Iran has contributed to the development of the Persian calendar in that package. Their efforts are gratefully acknowledged. </p>
+		<p>If you find any errors, especially if you find out that I have made a mistake in translating Couprie's VB code into Java, please report it to me (<a href="mailto:ghasemkiani@yahoo.com">ghasemkiani@yahoo.com</a>).</p>
+		<p>Using <code>SimplePersianCalendar</code> is straightforward. For example, to convert the current date into Persian date, we can write:</p>
+		<pre>
+	SimplePersianCalendar c = new SimplePersianCalendar();
 	DateFields t = c.getDateFields();
 	System.out.println(
 	"Current date in the Persian calendar is: " +
 		t.getYear() + "/" +
 		(t.getMonth() + 1) + "/" +
 		t.getDay() + ".");</pre>
-  <p>See the demo app for more details.</p>
-  <p>I hope you enjoy using this software.</p>
-  <p><a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a><br>(<a href="http://ghasemkiani.blogspot.com/">http://ghasemkiani.blogspot.com</a>)<br>25/09/2003, 02:31 AM</p></body></html>
+		<p>See the demo app for more details.</p>
+		<p>I hope you enjoy using this software.</p>
+		<p><a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a><br>(<a href="http://ghasemkiani.blogspot.com/">http://ghasemkiani.blogspot.com</a>)<br>2003-10-23 11:10</p>
+		<hr>
+		<p class="footer"><a href="index.html">home</a>&nbsp;|&nbsp;<a href="readme.html">readme</a>&nbsp;|&nbsp;<a href="doc/index.html">javadoc</a>&nbsp;|&nbsp;<a href="history.html">history</a>&nbsp;|&nbsp;<a href="gpl.txt">license</a><br>© 2003, <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a></p></body></html>
