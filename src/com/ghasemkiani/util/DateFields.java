@@ -29,7 +29,7 @@ package com.ghasemkiani.util;
 	month, and day. <code>SimplePersianCalendar</code> uses this class to
 	set/get the Persian date.
 	
-	@author Ghasem Kiani
+	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
 	@version 1.0
 */
 public class DateFields

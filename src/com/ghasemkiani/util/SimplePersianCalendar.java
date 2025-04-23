@@ -20,7 +20,18 @@
 	You should have received a copy of the GNU General Public License
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+*/
+
+/*
+	HISTORY:
+	Version 1.2 2003-11-17:
+		Converted Persian literals to Unicode escape sequences.
+	Version 1.1 2003-10-23:
+		Added Persian names for months and days of the week.
+		Added Javadoc documentation for the API.
+	Version 1.0 2003-09-25:
+		Started the project.
+*/
 
 package com.ghasemkiani.util;
 
@@ -39,8 +50,8 @@ import java.util.GregorianCalendar;
 	the development of the Persian calendar in that package. 
 	Their efforts are gratefully acknowledged.
 	
-	@author Ghasem Kiani
-	@version 1.1
+	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
+	@version 1.2
 */
 
 public class SimplePersianCalendar extends GregorianCalendar
@@ -118,35 +129,37 @@ public class SimplePersianCalendar extends GregorianCalendar
 		Persian month names.
 		@since 1.1
 	*/
+	// Comments are in "ISO-8859-6" encoding, but the code is essentially ASCII.
 	public static final String[] persianMonths =
 	{
-		"›—Ê—œÌ‰",
-		"«—œÌù»Â‘ ",
-		"Œ—œ«œ",
-		" Ì—",
-		"«„—œ«œ",
-		"‘Â—ÌÊ—",
-		"„Â—",
-		"¬»«‰",
-		"¬–—",
-		"œÌ",
-		"»Â„‰",
-		"«”›‰œ"
+		"\u0641\u0631\u0648\u0631\u062F\u064A\u0646", // "›—Ê—œÌ‰"
+		"\u0627\u0631\u062F\u064A\u200C\u0628\u0647\u0634\u062A", // "«—œÌù»Â‘ "
+		"\u062E\u0631\u062F\u0627\u062F", // "Œ—œ«œ"
+		"\u062A\u064A\u0631", // " Ì—"
+		"\u0627\u0645\u0631\u062F\u0627\u062F", // "«„—œ«œ"
+		"\u0634\u0647\u0631\u064A\u0648\u0631", // "‘Â—ÌÊ—"
+		"\u0645\u0647\u0631", // "„Â—"
+		"\u0622\u0628\u0627\u0646", // "¬»«‰"
+		"\u0622\u0630\u0631", // "¬–—"
+		"\u062F\u064A", // "œÌ"
+		"\u0628\u0647\u0645\u0646", // "»Â„‰"
+		"\u0627\u0633\u0641\u0646\u062F" // "«”›‰œ"
 	};
 	
 	/**
 		Persian week day names.
 		@since 1.1
 	*/
+	// Comments are in "ISO-8859-6" encoding, but the code is essentially ASCII.
 	public static final String[] persianWeekDays =
 	{
-		"‘‰»Â",
-		"Ìﬂ‘‰»Â",
-		"œÊ‘‰»Â",
-		"”Âù‘‰»Â",
-		"çÂ«—‘‰»Â",
-		"Å‰Ã‘‰»Â",
-		"Ã„⁄Â"
+		"\u0634\u0646\u0628\u0647", // "‘‰»Â"
+		"\u064A\u0643\u0634\u0646\u0628\u0647", // "Ìﬂ‘‰»Â"
+		"\u062F\u0648\u0634\u0646\u0628\u0647", // "œÊ‘‰»Â"
+		"\u0633\u0647\u200C\u0634\u0646\u0628\u0647", // "”Âù‘‰»Â"
+		"\u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647", // "çÂ«—‘‰»Â"
+		"\u067E\u0646\u062C\u0634\u0646\u0628\u0647", // "Å‰Ã‘‰»Â"
+		"\u062C\u0645\u0639\u0647" // "Ã„⁄Â"
 	};
 	
 	/**
@@ -200,7 +213,17 @@ public class SimplePersianCalendar extends GregorianCalendar
 	*/
 	public static String getPersianWeekDayName(int weekDay)
 	{
-		return persianWeekDays[weekDay];
+		switch(weekDay)
+		{
+			case SATURDAY: return persianWeekDays[0];
+			case SUNDAY: return persianWeekDays[1];
+			case MONDAY: return persianWeekDays[2];
+			case TUESDAY: return persianWeekDays[3];
+			case WEDNESDAY: return persianWeekDays[4];
+			case THURSDAY: return persianWeekDays[5];
+			case FRIDAY: return persianWeekDays[6];
+		}
+		return "";
 	}
 
 	// Correspondence between original VB functions and Java methods:
@@ -378,11 +401,21 @@ public class SimplePersianCalendar extends GregorianCalendar
 	
 	/**
 		A sample application using SimplePersianCalendar.
+		<p>
+		Please redirect the output to a file if your console
+		does not support Persian characters (Code Page 1256).
+		(The default encoding of your system must be capable
+		of encoding Persian characters, anyway.)
+		For example, write:
+			<pre>java com.ghasemkiani.util.SimplePersianCalendar > output.txt</pre>
+		Then, inspect the file "output.txt" to see the results.
 	*/
 	public static void main(java.lang.String[] args)
 	{
 		SimplePersianCalendar c = new SimplePersianCalendar();
 		DateFields df = c.getDateFields();
-		Message.say("«„—Ê“ " + getPersianWeekDayName(c.get(DAY_OF_WEEK)) + " " + df.getDay() + " " + getPersianMonthName(df.getMonth()) + " " + df.getYear());
+		System.out.println(df);
+		// Comment is in "ISO-8859-6" encoding, but the code is essentially ASCII.
+		System.out.println("\u0627\u0645\u0631\u0648\u0632: " /* "«„—Ê“: " */ + getPersianWeekDayName(c.get(DAY_OF_WEEK)) + " " + df.getDay() + " " + getPersianMonthName(df.getMonth()) + " " + df.getYear());
 	}
 }

@@ -1,6 +1,28 @@
+html
+{
+}
 body
 {
-	background-color: beige;
+	background-color: #ccccff;
+}
+a
+{
+	text-decoration: none;
+}
+a:hover
+{
+	text-decoration: underline;
+	color: red;
+	background-color: yellow;
+}
+a:active
+{
+	text-decoration: underline;
+	color: darkgreen;
+}
+a:visited
+{
+	text-decoration: none;
 }
 .footer
 {
