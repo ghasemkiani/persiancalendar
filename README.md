@@ -51,6 +51,6 @@ For more information, see the ICU4J documentation.
 
 ## License
 
-* The original Common Lisp code and the Python port are licensed under the Apache License, Version 2.0 (see the files `LICENSE-calendrica` and `LICENSE-roozbehp-persiancalendar`).
+* The original Common Lisp code and the Python port are licensed under the Apache License, Version 2.0 (see the file `LICENSE-calendrica`).
 * This project utilizes ICU4J (version 3.2), which is copyright International Business Machines Corporation (IBM). The license information for ICU4J can be found in the file `LICENSE-icu4j` included with this software package.
 * This project itself is licensed under the GNU General Public License, version 3 (see the file `LICENSE`).
