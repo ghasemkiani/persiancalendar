@@ -30,27 +30,31 @@ import com.ibm.icu.util.ULocale;
 	calendar eras and months.
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 2.0
+	@version 2.1
 */
 public class PersianDateFormatSymbols extends DateFormatSymbols
 {
 	private static final String BUNDLE = "com.ghasemkiani.util.icu.Resources";
 	/**
-		Creates a PersianDateFormatSymbols for the default locale.
+		Creates a <code>PersianDateFormatSymbols</code> for the default locale.
 	*/
 	public PersianDateFormatSymbols()
 	{
 		this(Locale.getDefault());
 	}
 	/**
-		Creates a PersianDateFormatSymbols for the specified locale.
+		Creates a <code>PersianDateFormatSymbols</code> for the specified locale.
+		
+		@param uLocale the provided locale for this object.
 	*/
 	public PersianDateFormatSymbols(ULocale uLocale)
 	{
 		this(uLocale.toLocale());
 	}
 	/**
-		Creates a PersianDateFormatSymbols for the specified locale.
+		Creates a <code>PersianDateFormatSymbols</code> for the specified locale.
+		
+		@param locale the provided locale for this object.
 	*/
 	public PersianDateFormatSymbols(Locale locale)
 	{

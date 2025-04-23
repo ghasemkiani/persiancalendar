@@ -6,7 +6,7 @@
 		<meta name="author" content="Ghasem Kiani">
 		<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
 		<meta http-equiv="Content-Language" content="en-US">
-		<title>Persian Calendar, version 2.0: Description</title>
+		<title>Persian Calendar, version 2.1: Description</title>
 		<link rel="stylesheet" href="style.css" type="text/css">
 		<style>
 	.code
@@ -21,7 +21,7 @@
 	}
 		</style></head>
 	<body>
-		<h1>Persian Calendar, version 2.0</h1>
+		<h1>Persian Calendar, version 2.1</h1>
 		<h2>Description</h2>
 		<p>The formal calendar in general use in Iran is the Solar Hijri Calendar, also called the Jalali Calendar. We call it here the Persian calendar. The Persian calendar uses a complex algorithm for calculating the leap years. The algorithm is illustrated in class <a href="src/com/ghasemkiani/util/PersianCalendarHelper1.java"><code>PersianCalendarHelper1</code></a>, which is there just for illustrative purposes and is not used by other class (class <a href="doc/com/ghasemkiani/util/PersianCalendarHelper.html"><code>PersianCalendarHelper</code></a> is used instead). But briefly, I can say that there are 683 leap years (366-day years) in each grand cycle of 2820 years, and the rest of the years are normal, 365-day years. The legal definition of leap years is astronomical in nature: whenever the vernal equinox is before 12:00:00 hours by the Tehran true time, that day is Nowruz (Farvardin 1st), otherwise that day is Esfand 30th, and the year is a leap year.</p>
 		<p>I have used a well-known <em>arithmetic</em> algorithm for calculating the leap years, which is practically equivalent to the astronomical definition for several hundreds of years. By all chances, I will also release an astronomical version in the future.</p>
@@ -60,7 +60,7 @@
 	String result = df.format(cal.getTime());
 		</pre>
 		<p>The result looks like this:</p>
-		<p class="result">22 Bahman 1357 Pazar</p>
+		<p class="result">22 Behmen 1357 Pazar</p>
 		<p>For Afghanistan, I have used another version of month names. Consider using this locale:</p>
 		<pre class="code">
 	

@@ -34,7 +34,7 @@ package com.ghasemkiani.util;
 	the source file for more information.</p>
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 2.0
+	@version 2.1
 */
 public class PersianCalendarHelper1
 {
@@ -110,6 +110,9 @@ public class PersianCalendarHelper1
 	}
 	/**
 		Determines if the specified year is a leap year in the Persian calendar.
+		
+		@param year the "Persian" year.
+		@return <code>true</code> if <code>year</code> is a leap year, <code>false</code> otherwise.
 	*/
 	public static boolean isLeapYear(long year)
 	{
@@ -117,6 +120,11 @@ public class PersianCalendarHelper1
 	}
 	/**
 		Returns the Julian day corresponding to the specified day in the Persian calendar.
+		
+		@param y the Persian year.
+		@param m the Persian month.
+		@param d the Persian day.
+		@return the Julian day corresponding to the specified date in the Persian calendar.
 	*/
 	public static long pj(long y, int m, int d)
 	{
@@ -149,6 +157,9 @@ public class PersianCalendarHelper1
 		Returns the date in the Persian calendar corresponding to the specified Julian day. 
 		The date fields (year, month, and day) are packed into a long value. See <code>{@link PersianCalendarUtils}</code>
 		class for extraction of fields from the packed long value.
+		
+		@param j the Julian day.
+		@return a packed long value containing the corresponding Persian year, month, and day.
 	*/
 	public static long jp(long j)
 	{

@@ -30,10 +30,15 @@ import static com.ghasemkiani.util.PersianCalendarUtils.EPOCH;
 import static com.ghasemkiani.util.PersianCalendarConstants.*;
 import static com.ghasemkiani.util.icu.PersianCalendar.*;
 
+import com.ghasemkiani.test.TestUtils;
+
 public class TestPersianCalendar extends Object
 {
 	public static void main(String[] args)
 	{
+		System.out.println("");
+		System.out.println("This program performs some tests on PersianCalendar class.");
+		
 		PersianCalendar pc = new PersianCalendar();
 		GregorianCalendar gc = new GregorianCalendar();
 		boolean error = false;
@@ -176,6 +181,9 @@ public class TestPersianCalendar extends Object
 			System.out.println("Error 9");
 		}
 		
-		System.out.println(error? "\n\nSome tests FAILED!\n\n": "\n\nAll tests SUCCEEDED!\n\n");
+		System.out.println("");
+		System.out.println(error? "Some tests FAILED!": "All tests SUCCEEDED!");
+		
+		TestUtils.printInfo();
 	}
 }

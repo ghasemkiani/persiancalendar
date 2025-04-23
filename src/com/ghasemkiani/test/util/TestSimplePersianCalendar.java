@@ -24,16 +24,23 @@ import com.ghasemkiani.util.icu.PersianCalendar;
 import com.ghasemkiani.util.SimplePersianCalendar;
 import com.ghasemkiani.util.DateFields;
 import static com.ghasemkiani.util.PersianCalendarUtils.EPOCH;
+import com.ghasemkiani.test.TestUtils;
 
 public class TestSimplePersianCalendar extends Object
 {
 	public static void main(String[] args)
 	{
-		System.out.println("\n\nThis test compares PersianCalendar and SimplePersianCalendar classes for 2000000 days.\n\n");
+		System.out.println("");
+		System.out.println("This test compares PersianCalendar and SimplePersianCalendar classes for 2000000 days.");
+		System.out.println("The timezone of both calendars is arbitrarily set to America/Los_Angeles.");
+		System.out.println("");
 		boolean error = false;
 		
 		PersianCalendar pc = new PersianCalendar();
 		SimplePersianCalendar spc = new SimplePersianCalendar();
+		
+		pc.setTimeZone(com.ibm.icu.util.TimeZone.getTimeZone("America/Los_Angeles"));
+		// spc.setTimeZone(java.util.TimeZone.getTimeZone("America/Los_Angeles"));
 		
 		long pct1 = 0, spct1 = 0, pct2 = 0, spct2 = 0, t;
 		
@@ -87,7 +94,9 @@ public class TestSimplePersianCalendar extends Object
 				System.out.println("Error 3");
 			}
 		}
-		System.out.println(error? "\n\nTest FAILED!\n\n": "\n\nTest SUCCEEDED!\n\n");
+		System.out.println("");
+		System.out.println(error? "Test FAILED!": "Test SUCCEEDED!");
+		System.out.println("");
 		System.out.println("Time spent by PersianCalendar:");
 		System.out.println("jp: " + (pct1 / 1000000) + " ms");
 		System.out.println("pj: " + (pct2 / 1000000) + " ms");
@@ -95,5 +104,7 @@ public class TestSimplePersianCalendar extends Object
 		System.out.println("Time spent by SimplePersianCalendar:");
 		System.out.println("jp: " + (spct1 / 1000000) + " ms");
 		System.out.println("pj: " + (spct2 / 1000000) + " ms");
+		
+		TestUtils.printInfo();
 	}
 }

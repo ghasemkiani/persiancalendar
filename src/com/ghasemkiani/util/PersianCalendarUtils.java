@@ -25,7 +25,7 @@ package com.ghasemkiani.util;
 	Persian Calendar classes.
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 2.0
+	@version 2.1
 */
 public class PersianCalendarUtils
 {
@@ -36,6 +36,10 @@ public class PersianCalendarUtils
 	public static final long EPOCH = 1948321;
 	/**
 		A modulo function suitable for our purpose.
+		
+		@param a the dividend.
+		@param b the divisor.
+		@return the remainder of integer division.
 	*/
 	public static long mod(double a, double b)
 	{
@@ -43,6 +47,10 @@ public class PersianCalendarUtils
 	}
 	/**
 		An integer division function suitable for our purpose.
+		
+		@param a the dividend.
+		@param b the divisor.
+		@return the quotient of integer division.
 	*/
 	public static long div(double a, double b)
 	{
@@ -50,6 +58,9 @@ public class PersianCalendarUtils
 	}
 	/**
 		Extracts the year from a packed long value.
+		
+		@param r the packed long value.
+		@return the year part of date.
 	*/
 	public static long y(long r)
 	{
@@ -57,6 +68,10 @@ public class PersianCalendarUtils
 	}
 	/**
 		Extracts the month from a packed long value.
+		
+		@param r the packed long value
+.
+		@return the month part of date.
 	*/
 	public static int m(long r)
 	{
@@ -64,6 +79,9 @@ public class PersianCalendarUtils
 	}
 	/**
 		Extracts the day from a packed long value.
+		
+		@param r the packed long value.
+		@return the day part of date.
 	*/
 	public static int d(long r)
 	{

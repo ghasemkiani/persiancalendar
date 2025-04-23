@@ -31,12 +31,15 @@ import static com.ghasemkiani.util.PersianCalendarUtils.*;
 	Couprie</a>, whose contribution is gratefully acknowledged.
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 2.0
+	@version 2.1
 */
 public class PersianCalendarHelper
 {
 	/**
 		Determines if the specified year is a leap year in the Persian calendar.
+		
+		@param year the "Persian" year.
+		@return <code>true</code> if <code>year</code> is a leap year, <code>false</code> otherwise.
 	*/
 	public static boolean isLeapYear(long year)
 	{
@@ -45,18 +48,26 @@ public class PersianCalendarHelper
 		return mod((b + 38D) * 682D, 2816D) < 682L;
 	}
 	/**
-		Returns the Julian day corresponding to the specified day in the Persian calendar.
+		Returns the Julian day corresponding to the specified date in the Persian calendar.
+		
+		@param y the Persian year.
+		@param m the Persian month.
+		@param d the Persian day.
+		@return the Julian day corresponding to the specified date in the Persian calendar.
 	*/
-	public static long pj(long year, int month, int day)
+	public static long pj(long y, int m, int d)
 	{
-		long a = year - 474L;
+		long a = y - 474L;
 		long b = mod(a, 2820D) + 474L;
-		return (EPOCH - 1L) + 1029983L * div(a, 2820D) + 365L * (b - 1L) + div(682L * b - 110L, 2816D) + (long)(month > 6? 30 * month + 6: 31 * month) + (long)day;
+		return (EPOCH - 1L) + 1029983L * div(a, 2820D) + 365L * (b - 1L) + div(682L * b - 110L, 2816D) + (long)(m > 6? 30 * m + 6: 31 * m) + (long)d;
 	}
 	/**
 		Returns the date in the Persian calendar corresponding to the specified Julian day. 
 		The date fields (year, month, and day) are packed into a long value. See <code>{@link PersianCalendarUtils}</code>
 		class for extraction of fields from the packed long value.
+		
+		@param j the Julian day.
+		@return a packed long value containing the corresponding Persian year, month, and day.
 	*/
 	public static long jp(long j)
 	{

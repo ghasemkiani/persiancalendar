@@ -20,6 +20,10 @@
 
 /*
 	HISTORY:
+	Version 2.1 2005-03-18:
+		A bug was corrected. Calculation of Julian days was being done on 
+		the timezone-dependent time, not on the universal time. Now, this 
+		is corrected.
 	Version 2.0 2005-02-21:
 		Some of the functionality was exported to other classes to be 
 		usable by the com.ghasemkiani.util.icu.PersianCalendar class 
@@ -71,36 +75,45 @@ import static com.ghasemkiani.util.PersianCalendarHelper.*;
 	are placed in <code>{@link PersianCalendarHelper}</code> class.
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 2.0
+	@version 2.1
 */
 
 public class SimplePersianCalendar extends GregorianCalendar implements PersianCalendarConstants
 {
 	private static String copyright = "Copyright \u00a9 2003-2005 Ghasem Kiani <ghasemkiani@yahoo.com>. All Rights Reserved.";
-	private static final long JULIAN_EPOCH_MILLIS = -210866815800000L;
+	// Julian day 0, 00:00:00 hours (midnight); milliseconds since 1970-01-01 00:00:00 UTC (Gregorian Calendar)
+	private static final long JULIAN_EPOCH_MILLIS = -210866803200000L;
 	private static final long ONE_DAY_MILLIS = 24L * 60L * 60L * 1000L;
 	
 	/**
 		Get the Julian day corresponding to the date of this calendar.
 		@since 2.0
+		
+		@return the Julian day corresponding to the date of this calendar.
 	*/
 	public long getJulianDay()
 	{
-		return div(getTime().getTime() - JULIAN_EPOCH_MILLIS, ONE_DAY_MILLIS);
+		return div(getTimeInMillis() - JULIAN_EPOCH_MILLIS, ONE_DAY_MILLIS);
 	}
 	/**
 		Set the date of this calendar to the specified Julian day.
 		@since 2.0
+		
+		@param julianDay the desired Julian day to be set as the date of this calendar.
 	*/
 	public void setJulianDay(long julianDay)
 	{
-		setTime(new Date(JULIAN_EPOCH_MILLIS + julianDay * ONE_DAY_MILLIS + mod(getTime().getTime() - JULIAN_EPOCH_MILLIS, ONE_DAY_MILLIS)));
+		setTimeInMillis(JULIAN_EPOCH_MILLIS + julianDay * ONE_DAY_MILLIS + mod(getTimeInMillis() - JULIAN_EPOCH_MILLIS, ONE_DAY_MILLIS));
 	}
 	
 	/**
 		Sets the date of this calendar object to the specified
 		Persian date (year, month, and day fields)
 		@since 1.0
+		
+		@param year the Persian year.
+		@param month the Persian month (zero-based).
+		@param day the Persian day of month.
 	*/
 	public void setDateFields(int year, int month, int day)
 	{
@@ -110,6 +123,8 @@ public class SimplePersianCalendar extends GregorianCalendar implements PersianC
 		Sets the date of this calendar object to the specified
 		Persian date fields
 		@since 1.0
+		
+		@param dateFields the Persian date fields.
 	*/
 	public void setDateFields(DateFields dateFields)
 	{
@@ -122,6 +137,8 @@ public class SimplePersianCalendar extends GregorianCalendar implements PersianC
 		Retrieves the date of this calendar object as the
 		Persian date fields
 		@since 1.0
+		
+		@return the date of this calendar as Persian date fields.
 	*/
 	public DateFields getDateFields()
 	{
@@ -169,6 +186,9 @@ public class SimplePersianCalendar extends GregorianCalendar implements PersianC
 	/**
 		Gives the name of the specified Persian month.
 		@since 1.1
+		
+		@param month the Persian month (zero-based).
+		@return the name of the specified Persian month in Persian.
 	*/
 	public static String getPersianMonthName(int month)
 	{
@@ -177,6 +197,8 @@ public class SimplePersianCalendar extends GregorianCalendar implements PersianC
 	/**
 		Gives the name of the current Persian month for this calendar's date.
 		@since 1.3
+		
+		@return the name of the current Persian month for this calendar's date in Persian.
 	*/
 	public String getPersianMonthName()
 	{
@@ -185,6 +207,9 @@ public class SimplePersianCalendar extends GregorianCalendar implements PersianC
 	/**
 		Gives the Persian name of the specified day of week.
 		@since 1.1
+		
+		@param weekDay the day of week (use symbolic constants in the <code>java.util.Calendar</code> class).
+		@return the name of the specified day of week in Persian.
 	*/
 	public static String getPersianWeekDayName(int weekDay)
 	{
@@ -204,6 +229,8 @@ public class SimplePersianCalendar extends GregorianCalendar implements PersianC
 		Gives the Persian name of the current day of the week for this 
 		calendar's date.
 		@since 1.3
+		
+		@return the name of the current day of week for this calendar's date in Persian.
 	*/
 	public String getPersianWeekDayName()
 	{

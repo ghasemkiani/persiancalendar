@@ -26,7 +26,7 @@ package com.ghasemkiani.util;
 	set/get the Persian date.
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 1.0
+	@version 2.1
 */
 public class DateFields
 {
@@ -53,8 +53,8 @@ public class DateFields
 
 	/**
 		This field denotes the Persian month.
-		<p>Note: month is zero-based.
-		See constants in <code>PersianCalendarConstants</code>.
+		<strong>Note:</strong> month is zero-based.
+		See constants in <code>{@link PersianCalendarConstants}</code>.
 	*/
 	private int month;
 	/**
@@ -94,7 +94,20 @@ public class DateFields
 	{
 		 return day;
 	}
-	/** Constructs a <code>DateFields</code> object with the given date fields. */
+	/**
+		Constructs a <code>DateFields</code> object with the date fields initialized to 0.
+	*/
+	public DateFields()
+	{
+		this(0, 0, 0);
+	}
+	/**
+		Constructs a <code>DateFields</code> object with the given date fields.
+		
+		@param year the Persian year.
+		@param month the Persian month (zero-based).
+		@param day the Persian day of month.
+	*/
 	public DateFields(int year, int month, int day)
 	{
 		super();
@@ -102,17 +115,11 @@ public class DateFields
 		setMonth(month);
 		setDay(day);
 	}
-	/** Constructs a <code>DateFields</code> object with the date fields initialized to 0. */
-	public DateFields()
-	{
-		this(0, 0, 0);
-	}
-	
 	/**
 		This method returns a usable string representation of this object.
 		Month is incremented to show one-based Persian month index.
 		
-		@return A usable string representation of this object.
+		@return a usable string representation of this object.
 	*/
 	public String toString()
 	{

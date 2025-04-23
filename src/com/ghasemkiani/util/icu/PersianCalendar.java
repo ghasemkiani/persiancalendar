@@ -20,6 +20,8 @@
 
 /*
 	HISTORY:
+	Version 2.1 2005-03-18:
+		Improved documentation. Some i18n enhancements.
 	Version 2.0 2005-02-21:
 		First release.
 */
@@ -95,12 +97,12 @@ import com.ghasemkiani.util.icu.PersianDateFormat;
 			<td>7 &#1069;&#1089;&#1092;&#1072;&#1085;&#1076; 1383 &#1075;. 12:00:39</td></tr>
 		<tr>
 			<td>T&#x00FC;rk&#x00E7;e</td>
-			<td>07 Esfand 1383 Cuma 12:00:39</td></tr>
+			<td>07 Isfend 1383 Cuma 12:00:39</td></tr>
 		<tr>
 			<td>Esperanto</td>
 			<td>vendredo, 7-a de esfando 1383 12:00:39</td></tr></table>
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 2.0
+	@version 2.1
 */
 public class PersianCalendar extends Calendar implements PersianCalendarConstants
 {
@@ -123,6 +125,8 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	}
 	/**
 		Constructs a Persian calendar with the specified time zone and the default locale.
+		
+		@param zone the desired timezone.
 	*/
 	public PersianCalendar(TimeZone zone)
 	{
@@ -130,6 +134,8 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	}
 	/**
 		Constructs a Persian calendar with the default time zone and the specified locale.
+		
+		@param aLocale the desired locale.
 	*/
 	public PersianCalendar(Locale aLocale)
 	{
@@ -137,6 +143,8 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	}
 	/**
 		Constructs a Persian calendar with the default time zone and the specified locale.
+		
+		@param locale the desired locale.
 	*/
 	public PersianCalendar(ULocale locale)
 	{
@@ -144,6 +152,9 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	}
 	/**
 		Constructs a Persian calendar with the specified time zone and locale.
+		
+		@param zone the desired timezone.
+		@param aLocale the desired locale.
 	*/
 	public PersianCalendar(TimeZone zone, Locale aLocale)
 	{
@@ -151,6 +162,9 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	}
 	/**
 		Constructs a Persian calendar with the specified time zone and locale.
+		
+		@param zone the desired timezone.
+		@param locale the desired locale.
 	*/
 	public PersianCalendar(TimeZone zone, ULocale locale)
 	{
@@ -160,6 +174,8 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	/**
 		Constructs a Persian calendar with the default time zone and locale
 		and sets its time to the specified date-time.
+		
+		@param date the date of this calendar object.
 	*/
 	public PersianCalendar(Date date)
 	{
@@ -169,6 +185,10 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	/**
 		Constructs a Persian calendar with the default time zone and locale
 		and sets its time to the specified date.
+		
+		@param year the Persian year.
+		@param month the Persian month (zero-based).
+		@param date the Persian day of month.
 	*/
 	public PersianCalendar(int year, int month, int date)
 	{
@@ -181,6 +201,13 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	/**
 		Constructs a Persian calendar with the default time zone and locale
 		and sets its time to the specified time.
+		
+		@param year the Persian year.
+		@param month the Persian month (zero-based).
+		@param date the Persian day of month.
+		@param hour the hours part of time.
+		@param minute the minutes part of time.
+		@param second the seconds part of time.
 	*/
 	public PersianCalendar(int year, int month, int date, int hour, int minute, int second)
 	{
@@ -278,6 +305,9 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 	/**
 		Adds the specified amount to the specified field of this calendar. 
 		This is overriden to correct the behavior at the end of the leap years.
+		
+		@param field the field index.
+		@param amount the amount to add.
 	*/
 	public void add(int field, int amount)
 	{
@@ -325,6 +355,8 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
 		("gregorian"). This is fine, just the month names and era names must 
 		be changed. This is taken care of by {@link PersianDateFormatSymbols}, 
 		which uses a java resource bundle in its turn.</p>
+		
+		@return type of this calendar ("persian").
 	*/
 	public String getType()
 	{

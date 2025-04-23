@@ -20,15 +20,20 @@
 
 package com.ghasemkiani.test.util;
 
+import java.util.Date;
+
 import static com.ghasemkiani.util.PersianCalendarUtils.*;
 import com.ghasemkiani.util.PersianCalendarHelper;
 import com.ghasemkiani.util.PersianCalendarHelper1;
+
+import com.ghasemkiani.test.TestUtils;
 
 public class TestPersianCalendarHelper
 {
 	public static void main(String[] args)
 	{
-		System.out.println("\n\nThis test compares PersianCalendarHelper and PersianCalendarHelper1 classes for 2000000 days.\n\n");
+		System.out.println("This test compares PersianCalendarHelper and PersianCalendarHelper1 classes for 2000000 days.");
+		System.out.println("");
 		boolean error = false;
 		
 		long jpt = 0, pjt = 0, jpt1 = 0, pjt1 = 0, t;
@@ -77,7 +82,9 @@ public class TestPersianCalendarHelper
 				}
 			}
 		}
-		System.out.println(error? "\n\nTest FAILED!\n\n": "\n\nTest SUCCEEDED!\n\n");
+		System.out.println("");
+		System.out.println(error? "Test FAILED!": "Test SUCCEEDED!");
+		System.out.println("");
 		System.out.println("Time spent by PersianCalendarHelper:");
 		System.out.println("jp: " + (jpt / 1000000) + " ms");
 		System.out.println("pj: " + (pjt / 1000000) + " ms");
@@ -85,5 +92,7 @@ public class TestPersianCalendarHelper
 		System.out.println("Time spent by PersianCalendarHelper1:");
 		System.out.println("jp: " + (jpt1 / 1000000) + " ms");
 		System.out.println("pj: " + (pjt1 / 1000000) + " ms");
+		
+		TestUtils.printInfo();
 	}
 }

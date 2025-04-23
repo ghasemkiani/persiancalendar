@@ -35,33 +35,42 @@ import com.ghasemkiani.util.icu.PersianDateFormatSymbols;
 	names of Persian calendar eras and months.
 	
 	@author <a href="mailto:ghasemkiani@yahoo.com">Ghasem Kiani</a>
-	@version 2.0
+	@version 2.1
 */
 public class PersianDateFormat extends SimpleDateFormat
 {
 	/**
-		Creates a PersianDateFormat with the default pattern and locale.
+		Creates a <code>PersianDateFormat</code> with the default pattern and locale.
 	*/
 	public PersianDateFormat()
 	{
         this("yyyy/MM/dd G HH:mm:ss z", ULocale.getDefault());
 	}
 	/**
-		Creates a PersianDateFormat with the specified pattern and the default locale.
+		Creates a <code>PersianDateFormat</code> with the specified pattern and the 
+		default locale.
+		
+		@param pattern the pattern to be used by this object.
 	*/
 	public PersianDateFormat(String pattern)
 	{
         this(pattern, ULocale.getDefault());
 	}
 	/**
-		Creates a PersianDateFormat with the specified pattern and locale.
+		Creates a <code>PersianDateFormat</code> with the specified pattern and locale.
+		
+		@param pattern the pattern to be used by this object.
+		@param loc the provided locale for this object.
 	*/
 	public PersianDateFormat(String pattern, Locale loc)
 	{
         this(pattern, ULocale.forLocale(loc));
 	}
 	/**
-		Creates a PersianDateFormat with the specified pattern and locale.
+		Creates a <code>PersianDateFormat</code> with the specified pattern and locale.
+		
+		@param pattern the pattern to be used by this object.
+		@param loc the provided locale for this object.
 	*/
 	public PersianDateFormat(String pattern, ULocale loc)
 	{
