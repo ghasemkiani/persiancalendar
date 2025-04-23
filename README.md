@@ -16,7 +16,39 @@ It should be noted that both `PersianCalendar` classes in this project and in IC
 
 ## Usage
 
-Here's a code snippet demonstrating how to format the current date in the Persian calendar:
+This library is planned for release on Maven Central. Until then, you will need to build and install it into your local Maven repository (`~/.m2/repository`) to use it in other projects.
+
+**1. Build and Install to Your Local Repository:**
+
+Clone the repository and install it using Maven:
+
+```bash
+git clone https://github.com/ghasemkiani/persiancalendar.git
+cd persiancalendar
+mvn clean install
+```
+
+This command will build the library and place the `persiancalendar-3.0.jar` (and associated files) into your local Maven cache.
+
+**2. Add Dependency to Your Project:**
+
+Once the library is installed in your local repository, you can add the following dependency snippet to the `pom.xml` file of your own Maven project:
+
+```xml
+  <dependency>
+    <groupId>com.ghasemkiani</groupId>
+    <artifactId>persiancalendar</artifactId>
+    <version>3.0</version>
+  </dependency>
+```
+
+Your project will then be able to find and use the library from your local cache.
+
+(**Note:** When version 3.0 is officially released to Maven Central, step 1 will no longer be necessary for most users, and they can simply add the dependency above.)
+
+**3. Example Usage:**
+
+Here's a basic example demonstrating how to use the `PersianCalendar` class to format the current date after adding the dependency:
 
 ```java
 import java.util.Date;
@@ -34,7 +66,7 @@ String result = df.format(new Date());
 // ...
 ```
 
-For more information, see the ICU4J documentation.
+For more information, see the [ICU4J documentation](https://unicode-org.github.io/icu-docs/apidoc/released/icu4j/).
 
 ## Acknowledgments
 
